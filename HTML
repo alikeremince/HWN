@@ -31,8 +31,8 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/Difference_2.js"></script>
-        <script src="data/Stempelstellen_3.js"></script>
+        <script src="https://github.com/alikeremince/HWN/blob/121dfee3b9324a14ddf24aad630c4aa21800dd0e/Harzgebiet.js"></script>
+        <script src="https://github.com/alikeremince/HWN/blob/121dfee3b9324a14ddf24aad630c4aa21800dd0e/Stempelstellen.js"></script>
        <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -86,7 +86,7 @@
         map.addLayer(layer_OpenStreetMap_1);
 
 
-        function pop_Difference_2(feature, layer) {
+        function pop_Harzgebiet(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -100,9 +100,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Difference_2_0() {
+        function style_Harzgebiet_0() {
             return {
-                pane: 'pane_Difference_2',
+                pane: 'pane_Harzgebiet',
                 opacity: 1,
                 color: 'rgba(223,119,8,1.0)',
                 dashArray: '',
@@ -115,21 +115,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_Difference_2');
-        map.getPane('pane_Difference_2').style.zIndex = 402;
-        map.getPane('pane_Difference_2').style['mix-blend-mode'] = 'normal';
-        var layer_Difference_2 = new L.geoJson(json_Difference_2, {
+        map.createPane('pane_Harzgebiet');
+        map.getPane('pane_Harzgebiet').style.zIndex = 402;
+        map.getPane('pane_Harzgebiet').style['mix-blend-mode'] = 'normal';
+        var layer_Harzgebiet = new L.geoJson(json_Harzgebiet, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_Difference_2',
-            layerName: 'layer_Difference_2',
-            pane: 'pane_Difference_2',
-            onEachFeature: pop_Difference_2,
-            style: style_Difference_2_0,
+            dataVar: 'json_Harzgebiet',
+            layerName: 'layer_Harzgebiet',
+            pane: 'pane_Harzgebiet',
+            onEachFeature: pop_Harzgebiet,
+            style: style_Harzgebiet_0,
         });
-        bounds_group.addLayer(layer_Difference_2);
-        map.addLayer(layer_Difference_2);
-        function pop_Stempelstellen_3(feature, layer) {
+        bounds_group.addLayer(layer_Harzgebiet);
+        map.addLayer(layer_Harzgebiet);
+        function pop_Stempelstellen(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -150,11 +150,11 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Stempelstellen_3_0(feature) {
+        function style_Stempelstellen_0(feature) {
             switch(String(feature.properties['Collected'])) {
                 case 'Yes':
                     return {
-                pane: 'pane_Stempelstellen_3',
+                pane: 'pane_Stempelstellen',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -170,7 +170,7 @@
                     break;
                 case 'No':
                     return {
-                pane: 'pane_Stempelstellen_3',
+                pane: 'pane_Stempelstellen',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
@@ -186,26 +186,26 @@
                     break;
             }
         }
-        map.createPane('pane_Stempelstellen_3');
-        map.getPane('pane_Stempelstellen_3').style.zIndex = 403;
-        map.getPane('pane_Stempelstellen_3').style['mix-blend-mode'] = 'normal';
-        var layer_Stempelstellen_3 = new L.geoJson(json_Stempelstellen_3, {
+        map.createPane('pane_Stempelstellen');
+        map.getPane('pane_Stempelstellen').style.zIndex = 403;
+        map.getPane('pane_Stempelstellen').style['mix-blend-mode'] = 'normal';
+        var layer_Stempelstellen = new L.geoJson(json_Stempelstellen, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Stempelstellen_3',
-            layerName: 'layer_Stempelstellen_3',
-            pane: 'pane_Stempelstellen_3',
-            onEachFeature: pop_Stempelstellen_3,
+            dataVar: 'json_Stempelstellen',
+            layerName: 'layer_Stempelstellen',
+            pane: 'pane_Stempelstellen',
+            onEachFeature: pop_Stempelstellen,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Stempelstellen_3_0(feature));
+                return L.circleMarker(latlng, style_Stempelstellen_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Stempelstellen_3);
-        map.addLayer(layer_Stempelstellen_3);
+        bounds_group.addLayer(layer_Stempelstellen);
+        map.addLayer(layer_Stempelstellen);
 		
            var abstract = new L.Control({'position':'topright'});
             abstract.onAdd = function (map) {
@@ -222,8 +222,8 @@
                     this._div.innerHTML = 
 			'<table style="width:100%">\
 			<tr><th colspan="3">Harzer Wandernadel Map of Kerem</th></tr>\
-			<tr><td style="text-align: right;"><img src="data/Stempelstellen_3_Frei1.png"></td><td style="text-align: left;"> Free</td><td rowspan="2" style="text-align: left;">45 / 222</td></tr>\
-			<tr><td style="text-align: right;"><img src="data/Stempelstellen_3_Gesammelt0.png"></td><td style="text-align: left;"> Collected</td></tr>\
+			<tr><td style="text-align: right;"><img src="data/Stempelstellen_Frei1.png"></td><td style="text-align: left;"> Free</td><td rowspan="2" style="text-align: left;">45 / 222</td></tr>\
+			<tr><td style="text-align: right;"><img src="data/Stempelstellen_Gesammelt0.png"></td><td style="text-align: left;"> Collected</td></tr>\
 			</table>';
             };
             abstract.addTo(map);
