@@ -1,0 +1,10 @@
+deployments:
+  - destination: /home/uvvhzyryp4er/public_html/kerem/data/git_data
+    repo: https://github.com/alikeremince/HWN.git
+    branch: main
+    cleanup: false
+    shallow_clone: true
+    fetch_submodules: true
+    run:
+      post_deploy:
+        - git --work-tree=/home/uvvhzyryp4er/public_html/kerem/data/git_data --git-dir=https://github.com/alikeremince/HWN.git pull origin main
